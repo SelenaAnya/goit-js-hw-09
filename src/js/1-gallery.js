@@ -67,39 +67,79 @@ const images = [
   const gallery = document.querySelector('.gallery');
   
 
-  const galleryMarkup = images
-    .map(({ preview, original, description }) => `
-      <li class="gallery-item">
-        <a class="gallery-link" href="${original}">
-          <img
-            class="gallery-image"
-            src="${preview}"
-            data-source="${original}"
-            alt="${description}"
-          />
-        </a>
-      </li>
-    `)
-    .join('');
-  
-  gallery.innerHTML = galleryMarkup;
-  
+  // Стилізація тіла сторінки (body)
+document.body.style.cssText = `
+font-family: Arial, sans-serif;
+margin: 0;
+padding: 0;
+display: flex;
+justify-content: center;
+align-items: center;
+min-height: 100vh;
+background-color: #f4f4f4;
+`;
 
-  gallery.addEventListener('click', onGalleryClick);
-  
-  function onGalleryClick(event) {
-    event.preventDefault();
-  
-    const isImageEl = event.target.classList.contains('gallery-image');
-    if (!isImageEl) return;
-  
-    const largeImageURL = event.target.dataset.source;
-  
+// Створення галереї
+const galleryContainer = document.createElement("ul");
+galleryContainer.classList.add("gallery");
+galleryContainer.style.cssText = `
+display: flex;
+flex-wrap: wrap;
+gap: 16px;
+list-style: none;
+padding: 0;
+margin: 0;
+`;
 
-    const instance = basicLightbox.create(`
-      <img src="${largeImageURL}" alt="${event.target.alt}">
-    `);
-    
-    instance.show();
-  }
-  
+// Додавання елементів галереї
+images.forEach(({ preview, original, description }) => {
+const galleryItem = document.createElement("li");
+galleryItem.style.cssText = `
+  flex-basis: calc(33.333% - 16px);
+  overflow: hidden;
+`;
+
+const galleryLink = document.createElement("a");
+galleryLink.href = original;
+galleryLink.style.textDecoration = "none";
+
+const galleryImage = document.createElement("img");
+galleryImage.src = preview;
+galleryImage.alt = description;
+galleryImage.style.cssText = `
+  display: block;
+  width: 100%;
+  height: auto;
+  transition: transform 0.3s ease-in-out;
+`;
+
+// Додавання ефекту наведення
+galleryImage.addEventListener("mouseover", () => {
+  galleryImage.style.transform = "scale(1.05)";
+});
+
+galleryImage.addEventListener("mouseout", () => {
+  galleryImage.style.transform = "scale(1)";
+});
+
+galleryLink.appendChild(galleryImage);
+galleryItem.appendChild(galleryLink);
+galleryContainer.appendChild(galleryItem);
+});
+
+// Додавання галереї до body
+document.body.appendChild(galleryContainer);
+
+// Додати обробник кліку для галереї
+galleryContainer.addEventListener("click", (event) => {
+event.preventDefault();
+const isImageEl = event.target.tagName === "IMG";
+if (!isImageEl) return;
+
+const largeImageURL = event.target.closest("a").href;
+const instance = basicLightbox.create(`
+  <img src="${largeImageURL}" alt="${event.target.alt}">
+`);
+
+instance.show();
+});
