@@ -50,8 +50,6 @@ function onFormSubmit(event) {
   form.reset(); // Очищуємо поля форми
 }
 
-// ... Ваш працюючий код до стилізацій
-
 // Стилізація форми
 form.style.cssText = `
   max-width: 408px;
@@ -59,7 +57,6 @@ form.style.cssText = `
   border: 2px solid #ccc;
   border-radius: 8px;
   margin: 0 auto;
-//   margin-bottom: 16px;
 `;
 
 // Вибір усіх елементів форми (input, textarea, button)
@@ -80,7 +77,6 @@ inputs.forEach((input) => {
       color: #808080;
       font-family: Montserrat, sans-serif;
       transition: border-color 0.3s;
-
     `;
   } else {
     // Стилізація кнопки
@@ -94,20 +90,18 @@ inputs.forEach((input) => {
       font-size: 16px;
       line-height: 1.5;
       font-weight: 500;
-      padding: 8px 16px;
       text-align: center;
       font-family: Montserrat, sans-serif;
       cursor: pointer;
       transition: background-color 0.3s;
-      hover: #4E75FF;
       margin-top: 16px;
     `;
 
     input.addEventListener("mouseover", () => {
-      input.style.backgroundColor = "#FFFFFF";
+      input.style.backgroundColor = "#0056b3";
     });
     input.addEventListener("mouseout", () => {
-      input.style.backgroundColor = "#FFFFFF";
+      input.style.backgroundColor = "#4E75FF";
     });
   }
 });
@@ -119,7 +113,7 @@ labels.forEach((label) => {
     display: flex;
     flex-wrap: wrap;
     width: 360px;
-    // margin-bottom: 8px;
+    margin-bottom: 8px;
     font-family: Montserrat, sans-serif;
     font-weight: 400;
     font-size: 16px;
@@ -128,32 +122,3 @@ labels.forEach((label) => {
   `;
 });
 
-const images = [
-    "https://via.placeholder.com/600x400?text=Image+1",
-    "https://via.placeholder.com/600x400?text=Image+2",
-    "https://via.placeholder.com/600x400?text=Image+3",
-  ];
-  
-  let currentIndex = 0;
-  
-  const imageElement = document.querySelector(".image");
-  const leftArrow = document.querySelector(".arrow.left");
-  const rightArrow = document.querySelector(".arrow.right");
-  
-  function updateImage(index) {
-    imageElement.src = images[index];
-  }
-  
-  leftArrow.addEventListener("click", () => {
-    currentIndex = (currentIndex - 1 + images.length) % images.length;
-    updateImage(currentIndex);
-  });
-  
-  rightArrow.addEventListener("click", () => {
-    currentIndex = (currentIndex + 1) % images.length;
-    updateImage(currentIndex);
-  });
-  
-  // Початкове зображення
-  updateImage(currentIndex);
-  
