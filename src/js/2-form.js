@@ -49,3 +49,67 @@ function onFormSubmit(event) {
   localStorage.removeItem(STORAGE_KEY);
   form.reset(); // Очищуємо поля форми
 }
+
+// ... Ваш працюючий код до стилізацій
+
+// Стилізація форми
+form.style.cssText = `
+  max-width: 400px;
+  margin: 50px auto;
+  padding: 20px;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+`;
+
+// Вибір усіх елементів форми (input, textarea, button)
+const inputs = form.querySelectorAll("input, textarea, button");
+
+// Стилізація всіх полів (input і textarea)
+inputs.forEach((input) => {
+  if (input.type !== "submit") {
+    input.style.cssText = `
+      width: 306px;
+      margin-bottom: 15px;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-size: 16px;
+    `;
+  } else {
+    // Стилізація кнопки
+    input.style.cssText = `
+      width: 100%;
+      padding: 10px;
+      border: none;
+      border-radius: 4px;
+      background-color: #007BFF;
+      color: #fff;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    `;
+
+    input.addEventListener("mouseover", () => {
+      input.style.backgroundColor = "#0056b3";
+    });
+    input.addEventListener("mouseout", () => {
+      input.style.backgroundColor = "#007BFF";
+    });
+  }
+});
+
+// Стилізація тексту в label
+const labels = form.querySelectorAll("label");
+labels.forEach((label) => {
+  label.style.cssText = `
+    display: flex;
+    flex-wrap: wrap;
+    width: 360px;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #333;
+  `;
+});
