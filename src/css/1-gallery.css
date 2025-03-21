@@ -8,6 +8,10 @@ body {
     min-height: 100vh;
     background-color: #f4f4f4;
   }
+
+  .hidden {
+    display: none;
+  }
   
   .gallery {
     display: flex;
@@ -37,5 +41,46 @@ body {
   
   .gallery-image:hover {
     transform: scale(1.05);
+  }
+  
+  .image-container {
+    position: relative;
+    width: 600px;
+    height: 400px;
+    margin: auto;
+    overflow: hidden;
+  }
+  
+  .image {
+    width: 100%;
+    height: auto;
+  }
+  
+  .arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 40px;
+    height: 40px;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .left {
+    left: 10px;
+  }
+  
+  .right {
+    right: 10px;
+  }
+  
+  .arrow:hover {
+    background-color: rgba(0, 0, 0, 0.7);
   }
   

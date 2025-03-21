@@ -54,13 +54,12 @@ function onFormSubmit(event) {
 
 // Стилізація форми
 form.style.cssText = `
-  max-width: 400px;
-  margin: 50px auto;
-  padding: 20px;
+  max-width: 408px;
+  padding: 24px;
   border: 2px solid #ccc;
   border-radius: 8px;
-  background-color: #f9f9f9;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin: 0 auto;
+//   margin-bottom: 16px;
 `;
 
 // Вибір усіх елементів форми (input, textarea, button)
@@ -70,33 +69,45 @@ const inputs = form.querySelectorAll("input, textarea, button");
 inputs.forEach((input) => {
   if (input.type !== "submit") {
     input.style.cssText = `
-      width: 306px;
-      margin-bottom: 15px;
-      padding: 10px;
+      width: 360px;
+      margin-bottom: 8px;
+      padding: 8px 16px;
       border: 1px solid #ccc;
       border-radius: 4px;
       font-size: 16px;
+      font-weight: 400;
+      line-height: 1.5;
+      color: #808080;
+      font-family: Montserrat, sans-serif;
+      transition: border-color 0.3s;
+
     `;
   } else {
     // Стилізація кнопки
     input.style.cssText = `
-      width: 100%;
-      padding: 10px;
+      width: 95px;
+      padding: 8px;
       border: none;
-      border-radius: 4px;
-      background-color: #007BFF;
+      border-radius: 8px;
+      background-color: #4E75FF;
       color: #fff;
       font-size: 16px;
-      font-weight: bold;
+      line-height: 1.5;
+      font-weight: 500;
+      padding: 8px 16px;
+      text-align: center;
+      font-family: Montserrat, sans-serif;
       cursor: pointer;
       transition: background-color 0.3s;
+      hover: #4E75FF;
+      margin-top: 16px;
     `;
 
     input.addEventListener("mouseover", () => {
-      input.style.backgroundColor = "#0056b3";
+      input.style.backgroundColor = "#FFFFFF";
     });
     input.addEventListener("mouseout", () => {
-      input.style.backgroundColor = "#007BFF";
+      input.style.backgroundColor = "#FFFFFF";
     });
   }
 });
@@ -108,8 +119,41 @@ labels.forEach((label) => {
     display: flex;
     flex-wrap: wrap;
     width: 360px;
-    margin-bottom: 8px;
-    font-weight: bold;
-    color: #333;
+    // margin-bottom: 8px;
+    font-family: Montserrat, sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.5;
+    color: #2E2F42;
   `;
 });
+
+const images = [
+    "https://via.placeholder.com/600x400?text=Image+1",
+    "https://via.placeholder.com/600x400?text=Image+2",
+    "https://via.placeholder.com/600x400?text=Image+3",
+  ];
+  
+  let currentIndex = 0;
+  
+  const imageElement = document.querySelector(".image");
+  const leftArrow = document.querySelector(".arrow.left");
+  const rightArrow = document.querySelector(".arrow.right");
+  
+  function updateImage(index) {
+    imageElement.src = images[index];
+  }
+  
+  leftArrow.addEventListener("click", () => {
+    currentIndex = (currentIndex - 1 + images.length) % images.length;
+    updateImage(currentIndex);
+  });
+  
+  rightArrow.addEventListener("click", () => {
+    currentIndex = (currentIndex + 1) % images.length;
+    updateImage(currentIndex);
+  });
+  
+  // Початкове зображення
+  updateImage(currentIndex);
+  
