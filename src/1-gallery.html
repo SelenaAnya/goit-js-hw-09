@@ -4,16 +4,18 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Gallery</title>
-  <!-- <link rel="stylesheet" href="./css/1-gallery.css"> -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/basiclightbox@5.0.4/dist/basicLightbox.min.css">
 </head>
 <body>
-  <ul class="gallery"></ul>
-  <!-- <div class="image-container hidden">
-    <button class="arrow left">&#9664;</button>
-    <img src="https://via.placeholder.com/600x400" alt="Sample Image" class="image">
-    <button class="arrow right">&#9654;</button>
-  </div> -->
+  <li class="gallery-item">
+    <a class="gallery-link" href="large-image.jpg">
+      <img 
+        class="gallery-image" 
+        src="small-image.jpg" 
+        alt="Image description" 
+      />
+    </a>
+  </li>
   <script src="https://cdn.jsdelivr.net/npm/basiclightbox@5.0.4/dist/basicLightbox.min.js"></script>
   <script src="./js/1-gallery.js"></script>
 </body>

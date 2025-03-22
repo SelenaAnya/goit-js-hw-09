@@ -50,14 +50,25 @@ function onFormSubmit(event) {
   form.reset(); // Очищуємо поля форми
 }
 
+document.body.style.cssText = `
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  background-color: #f4f4f4;
+`;
+
 // Стилізація форми
 form.style.cssText = `
-  max-width: 408px;
+  max-width: 90%;
+  width: 408px;
   padding: 24px;
   border: 2px solid #ccc;
   border-radius: 8px;
-  margin: 0 auto;
+  background-color: #fff;
 `;
+
 
 // Вибір усіх елементів форми (input, textarea, button)
 const inputs = form.querySelectorAll("input, textarea, button");
@@ -112,7 +123,7 @@ labels.forEach((label) => {
   label.style.cssText = `
     display: flex;
     flex-wrap: wrap;
-    width: 360px;
+    // width: 360px;
     margin-bottom: 8px;
     font-family: Montserrat, sans-serif;
     font-weight: 400;
