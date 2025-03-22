@@ -1,7 +1,7 @@
 import SimpleLightbox from "simplelightbox"; // Імпорт SimpleLightbox
 import "simplelightbox/dist/simple-lightbox.min.css"; // Імпорт стилів бібліотеки
 
-/ Ініціалізація SimpleLightbox для галереї
+// Ініціалізація SimpleLightbox для галереї
 const lightbox = new SimpleLightbox('.gallery a', {
   captionsData: 'alt',       // Використання атрибуту alt як підпису
   captionDelay: 250,         // Затримка перед показом підпису
