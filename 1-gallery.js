@@ -17,13 +17,11 @@ import"./assets/modulepreload-polyfill-B5Qt9EMX.js";import{S as s}from"./assets/
     list-style: none;
     max-width: 1128px;
   `,document.querySelectorAll(".gallery-item").forEach(e=>{e.style.cssText=`
-      border-radius: 8px;
       overflow: hidden;
     `}),document.querySelectorAll(".gallery-image").forEach(e=>{e.style.cssText=`
       width: 100%;
       height: auto;
       transition: transform 0.3s ease-in-out;
-      border-radius: 8px;
     `,e.addEventListener("mouseover",()=>{e.style.transform="scale(1.05)"}),e.addEventListener("mouseout",()=>{e.style.transform="scale(1)"})}),new s(".gallery a",{captionsData:"alt",captionDelay:250,captions:!1});const n=document.createElement("style");n.innerHTML=`
     .sl-overlay {
       background: #2E2F42CC !important;
