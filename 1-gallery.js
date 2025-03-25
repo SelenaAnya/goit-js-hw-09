@@ -10,8 +10,8 @@ import"./assets/modulepreload-polyfill-B5Qt9EMX.js";import{S as s}from"./assets/
   </li>
 `).join("");document.addEventListener("DOMContentLoaded",()=>{const t=document.querySelector(".gallery");t.innerHTML=l,t.style.cssText=`
     display: grid;
-    grid-template-columns: repeat(3, 1fr); 
-    gap: 16px; 
+    grid-template-columns: repeat(3, 1fr); /* Три стовпці */
+    gap: 16px; /* Проміжки між картинками */
     padding: 0;
     margin: 20px auto;
     list-style: none;
@@ -24,6 +24,7 @@ import"./assets/modulepreload-polyfill-B5Qt9EMX.js";import{S as s}from"./assets/
       height: auto;
       transition: transform 0.3s ease-in-out;
       border-radius: 8px;
+      // box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     `,e.addEventListener("mouseover",()=>{e.style.transform="scale(1.05)"}),e.addEventListener("mouseout",()=>{e.style.transform="scale(1)"})}),new s(".gallery a",{captionsData:"alt",captionDelay:250,captions:!1});const n=document.createElement("style");n.innerHTML=`
     .sl-overlay {
       background: #2E2F42CC !important;
