@@ -10,8 +10,8 @@ import"./assets/modulepreload-polyfill-B5Qt9EMX.js";import{S as s}from"./assets/
   </li>
 `).join("");document.addEventListener("DOMContentLoaded",()=>{const t=document.querySelector(".gallery");t.innerHTML=l,t.style.cssText=`
     display: grid;
-    grid-template-columns: repeat(3, 1fr); 
-    gap: 16px; 
+    grid-template-columns: repeat(3, 1fr); /* Три стовпці */
+    gap: 16px; /* Проміжки між картинками */
     padding: 0;
     margin: 20px auto;
     list-style: none;
