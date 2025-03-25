@@ -102,7 +102,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const galleryItems = document.querySelectorAll('.gallery-item');
   galleryItems.forEach(item => {
     item.style.cssText = `
-      border-radius: 8px;
       overflow: hidden;
     `;
   });
@@ -113,8 +112,6 @@ document.addEventListener('DOMContentLoaded', () => {
       width: 100%;
       height: auto;
       transition: transform 0.3s ease-in-out;
-      border-radius: 8px;
-      // box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     `;
 
     // Ефект при наведенні
